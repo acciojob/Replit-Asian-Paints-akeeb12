@@ -1,15 +1,25 @@
 //your JS code here. If required.
-document.getElementById('change_button').addEventListener('click', function () {
-	for(let i = 1; i <= 9; i ++){
-		document.getElementById(`grid-items${i}`).style.backgroundColor = 'transparent';
-	}
-	let block_Id = document.getElementById('block_id').value;
-	let colour_Id = document.getElementById('color_id').value;
-	document.getElementById(`grid-item${blockId}`).style.backgroundColor = color;
-});
+let change_color = document.getElementById("change_button")
+let reset = document.getElementById("reset_button");
 
-document.getElementById('Reset').addEventListener('click', function() {
-		for(let i = 1; i <= 9; i ++){
-			document.getElementById(`grid-item${i}`).style.backgroundColor = 'transparent';
-		}
-	});
+change_color.addEventListener("click", (e) => {
+    e.preventDefault()
+    var blockId = document.getElementById("block_id").value;
+    console.log(blockId);
+    var color = document.getElementById("colour_id").value;
+    console.log(color);
+
+    var cell = document.getElementById(blockId);
+
+    cell.style.backgroundColor = color;
+})
+
+reset.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    var gridClas = document.querySelectorAll(".grid-item");
+
+    gridClas.forEach(t => {
+        t.style.backgroundColor = 'transparent'
+    })
+})
